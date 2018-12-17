@@ -1,0 +1,29 @@
+Basak
+
+// Status:
+Good, with some adjustments. See below
+
+// Notes:
+Overall, you're on the right track. I think that you've got a few too many questions, with slightly less detail than I'd recommend. So I have some suggestions!
+
+First of all, I think you could drop the centrality questions. Since you already have the flow rates across the edges into and out of each node (intersetction) then you sort of already have the betweenness centralities—no need to calculate them separately. 
+
+However, it might be interesting to look at the *distribution* of these "flow" centrality values in one city, and compare that to the *distribution* of similary centralities in other cities. Are the distributions of flows similar? How do they change with city size, or city density? 
+
+Another direction that you could go from the centrality idea would be to test what some have called the "dynamical importance" of nodes (or links).  Define the dynamical importance of a node to be the drop in overall transport speed that occurs when we block ALL traffic in and out of the intersection that the node represents. In other words, if I force everyone to detour around node i, how bad is it? This is something that you could investigate with a simulation as well as some mathematics, provided that you knew how traffic is expected to reroute. 
+
+One can also ask a different version of the question above, which might be a nice "extension" project if you have time. Rather than asking about the removal nodes (or links, for that matter), you could ask what the effect would be of increasing the capacity of a link, or creating a new node. 
+
+I would discourage you from using random graph models in this case. The reason is that road networks are special: they are mostly planar, meaning that the links do not cross (usually). They will tend to have larger diameter then, particularly since each edge and each node is embedded in space. Thus, random graph models that we have learned about would be a poor model, even with fixed degree sequence. 
+
+So, in summary, this is a good proposal, but I would make some adjustments:
+- Drop the random graph models, since they don't apply well to spatial networks. 
+- Drop the centrality measures, since we already have an idea of what kinds of centralities are important—indeed, they are given in the datasets!
+- Consider instead doing comparisons between cities. Perhaps the distributions of the weighted betweenness centralities would be interesting. 
+- Also consider a simulation-type approach in which you test the removal of nodes and subsequent rerouting of traffic. Or, the removal of links, and the subsequent rerouting of traffic.
+
+Please let me know what you decide!
+
+// Trivial:
+For quotation marks that don't look weird, use ` for the left and ' for the right. 
+metrpolitan
